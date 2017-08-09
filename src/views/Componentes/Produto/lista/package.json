@@ -1,0 +1,6 @@
+{
+  "name": "ProdutoLista",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./Produtos.js"
+}

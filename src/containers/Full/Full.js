@@ -8,6 +8,7 @@ import Footer from '../../components/Footer/';
 import Gasto from '../../views/Componentes/Gasto/';
 import ClienteForm from '../../views/Componentes/Cliente/form';
 import TransportadoraForm from '../../views/Componentes/Transportadora/form';
+import ProdutoLista from '../../views/Componentes/Produto/lista';
 
 import Dashboard from '../../views/Dashboard/';
 
@@ -26,6 +27,7 @@ class Full extends Component {
                 <Route path="/componentes/gasto" name="Gasto" component={Gasto}/>
                 <Route path="/cliente/form" name="Cliente" component={ClienteForm}/>
                  <Route path="/transportadora/form" name="Transportadora" component={TransportadoraForm}/>
+                  <Route path="/produtos" name="Produtos" component={ProdutoLista}/>
                 <Redirect from="/" to="/dashboard"/>
               </Switch>
             </div>
