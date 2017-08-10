@@ -1,0 +1,6 @@
+{
+  "name": "ProdutoForm",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./ProdutoForm.js"
+}

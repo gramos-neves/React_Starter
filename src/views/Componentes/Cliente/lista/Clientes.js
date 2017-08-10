@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 
-export default class Produtos extends Component {
+export default class Clientes extends Component {
 
 
     constructor() {
         super();
-        this.state = { produtos: [] }
+        this.state = { clientes: [] }
     }
 
 
     componentDidMount() {
-        fetch(`http://localhost:8080/api/public/produtos/`)
+        fetch(`http://localhost:8080/api/public/cliente/lista`)
             .then(response => response.json())
-            .then(produtos => {
-                this.setState({ produtos: produtos })
-                console.log(produtos);
+            .then(lista => {
+                this.setState({ clientes: lista })
+                console.log(lista);
             }).catch(erro => {
                 console.log(erro);
             })
@@ -50,12 +50,16 @@ export default class Produtos extends Component {
                     <div className="col-lg-12">
                         <div className="card">
                             <div className="card-header">
-                                <i className="fa fa-align-justify"></i> Produto
+                                <i className="fa fa-align-justify"></i> Cliente
                                </div>
-                            <BootstrapTable data={this.state.produtos} pagination={true} options={options} >
-                                <TableHeaderColumn dataField='id_Produto' isKey={true}>Product ID</TableHeaderColumn>
-                                <TableHeaderColumn dataField='descricao'>Product Descrição</TableHeaderColumn>
-
+                            <BootstrapTable data={this.state.clientes} pagination={true} options={options} >
+                                <TableHeaderColumn dataField='id_cliente' isKey={true}>ID</TableHeaderColumn>
+                                <TableHeaderColumn dataField='x_cnpj'>CNPJ</TableHeaderColumn>
+                                <TableHeaderColumn dataField='cpf'>CPF</TableHeaderColumn>
+                                <TableHeaderColumn dataField='x_ie'>IE</TableHeaderColumn>
+                                <TableHeaderColumn dataField='telefone'>Telefone</TableHeaderColumn>
+                                <TableHeaderColumn dataField='x_cep'>Cep</TableHeaderColumn>
+                                <TableHeaderColumn dataField='x_bairro'>Bairro</TableHeaderColumn>
                             </BootstrapTable>
                         </div>
                     </div>

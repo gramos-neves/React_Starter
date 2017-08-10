@@ -1,31 +1,26 @@
 import React, { Component } from 'react';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 
-export default class Produtos extends Component {
-
-
-    constructor() {
-        super();
-        this.state = { produtos: [] }
-    }
-
-
-    componentDidMount() {
-        fetch(`http://localhost:8080/api/public/produtos/`)
+export default class Transportadoras extends Component { 
+  
+      constructor(){
+          super();
+          this.state = {transportadoras: []}
+      }
+  
+      componentDidMount() {
+        fetch(`http://localhost:8080/api/public/transportadora/lista`)
             .then(response => response.json())
-            .then(produtos => {
-                this.setState({ produtos: produtos })
-                console.log(produtos);
+            .then(trans => {
+                this.setState({ transportadoras: trans })
+                console.log(trans);
             }).catch(erro => {
                 console.log(erro);
             })
     }
-
-
-
-
-    render() {
-        const options = {
+  
+    render(){
+       const options = {
             page: 1,  // which page you want to show as default
             sizePerPageList: [{
                 text: '5', value: 5
@@ -50,11 +45,11 @@ export default class Produtos extends Component {
                     <div className="col-lg-12">
                         <div className="card">
                             <div className="card-header">
-                                <i className="fa fa-align-justify"></i> Produto
+                                <i className="fa fa-align-justify"></i> Transportadora
                                </div>
-                            <BootstrapTable data={this.state.produtos} pagination={true} options={options} >
-                                <TableHeaderColumn dataField='id_Produto' isKey={true}>Product ID</TableHeaderColumn>
-                                <TableHeaderColumn dataField='descricao'>Product Descrição</TableHeaderColumn>
+                            <BootstrapTable data={this.state.transportadoras} pagination={true} options={options} >
+                                <TableHeaderColumn dataField='id_transportadora' isKey={true}>Product ID</TableHeaderColumn>
+                                <TableHeaderColumn dataField='nome'>Product Descrição</TableHeaderColumn>
 
                             </BootstrapTable>
                         </div>
@@ -63,4 +58,6 @@ export default class Produtos extends Component {
             </div>
         )
     }
+
+
 }
